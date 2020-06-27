@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 // Home route
 app.get('/', (req, res,) =>{
-    res.send('Server running.');
+    res.render('pages/index', { headertitle: 'EPIC Manager Home'})
 })
 
 // Run server

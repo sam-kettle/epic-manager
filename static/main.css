@@ -1,0 +1,11 @@
+body {
+    font-family: 'Noto Serif', serif;
+}
+
+h1, h2, h3, nav {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+nav h2{
+    font-size: 1.4em;
+}
