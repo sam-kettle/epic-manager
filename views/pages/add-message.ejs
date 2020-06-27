@@ -1,0 +1,21 @@
+<%- include('../partials/_head') -%>
+<%- include('../partials/_nav') -%>
+
+<div id="add-message-container">
+    <h2>Add a new message</h2>
+    <form action="POST" method="/message-board">
+        <div class="form-group">
+            <label for="author-input">Name</label>
+            <input type="text" class="form-control" id="author-input" placeholder="e.g. Sam Eddy">
+          </div>
+          <div class="form-group">
+            <label for="title-input">Name</label>
+            <input type="text" class="form-control" id="title-input" placeholder="Enter your message title">
+          </div>
+          <div class="form-group">
+            <label for="message-text-area">Example textarea</label>
+            <textarea class="form-control" id="message-text-area" rows="5"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
