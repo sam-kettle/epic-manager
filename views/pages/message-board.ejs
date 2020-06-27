@@ -2,7 +2,12 @@
 <%- include('../partials/_nav') -%>
 
 <div id="message-board-container">
-    <h2>Welcome to the message board</h2>
+    
+    <div id='message-board-header'>
+        <h2>Welcome to the message board</h2>
+        <a role='button' class='btn btn-success' href="/message-board/add">Add Message</a>
+    </div>
+
     <div id="message-board-cards">
         <% messages.forEach(function(message) { %>
             <div class="card bg-light mb-3" style="max-width: 20rem;">
