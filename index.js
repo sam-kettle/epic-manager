@@ -8,6 +8,13 @@ const app = express();
 app.set('view engine', 'ejs')
 app.use('/static', express.static(path.join(__dirname, 'static')))
 
+// Mongoose connection
+mongoose.connect('mongodb://localhost/epicmanagerdb', { useNewUrlParser: true, useUnifiedTopology: true })
+const db = mongoose.connection
+
+// Check for database connection errors
+db.on('error', (err) => { console.log(err) })
+db.once('open', () => { console.log('Successfully connected to database.') })
 
 // Middleware configuration
 app.use(bodyParser.json())
