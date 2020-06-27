@@ -18,6 +18,10 @@ app.get('/', (req, res,) =>{
     res.render('pages/index', { headertitle: 'EPIC Manager Home'})
 })
 
+// Message board route handler
+const messageBoard = require('./routes/message-board')
+app.use('/message-board', messageBoard)
+
 // Run server
 const port  = process.env.PORT || 3000;
 app.listen(port, () => {
