@@ -14,10 +14,32 @@ nav h2{
     width: 80%;
     margin: 0 auto;
     padding-top: 50px;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+#message-board-container h2 {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+#message-board-container p {
+    font-family: 'Noto Serif', serif;
+    font-size: 0.9em;
+}
+
+#message-board-cards {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: space-evenly;
 }
 
 #add-message-container {
     padding-top: 100px;
     width: 500px;
     margin: 0 auto;
+}
+
+#message-card-author {
+    font-weight: strong;
 }

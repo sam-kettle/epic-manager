@@ -3,9 +3,15 @@
 
 <div id="message-board-container">
     <h2>Welcome to the message board</h2>
-    <% messages.forEach(function(message) { %>
-        <h4><%= message.author %></h3>
-        <h3><%= message.title %></h3>
-        <p><%= message.content %></p>
-    <% }); %>
+    <div id="message-board-cards">
+        <% messages.forEach(function(message) { %>
+            <div class="card bg-light mb-3" style="max-width: 20rem;">
+                <div class="card-header"><span id='message-card-author'>From: </span><%= message.author %></div>
+                <div class="card-body">
+                <h4 class="card-title"><%= message.title %></h4>
+                <p class="card-text"><%= message.content %></p>
+                </div>
+            </div>
+        <% }); %>
+    </div>
 </div>
