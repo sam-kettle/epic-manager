@@ -9,3 +9,9 @@ h1, h2, h3, nav {
 nav h2{
     font-size: 1.4em;
 }
+
+#add-message-container {
+    padding-top: 100px;
+    width: 500px;
+    margin: 0 auto;
+}
