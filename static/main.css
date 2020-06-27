@@ -31,7 +31,7 @@ nav h2{
 
 #message-board-cards {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap-reverse;
     align-items: stretch;
     justify-content: space-evenly;
 }

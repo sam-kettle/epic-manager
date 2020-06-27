@@ -1,5 +1,4 @@
 const express = require('express')
-const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const path = require('path')
 
@@ -17,8 +16,7 @@ db.on('error', (err) => { console.log(err) })
 db.once('open', () => { console.log('Successfully connected to database.') })
 
 // Middleware configuration
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(express.urlencoded({ extended: true }))
 
 // Home route
 app.get('/', (req, res,) =>{

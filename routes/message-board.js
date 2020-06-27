@@ -12,8 +12,19 @@ router.get('/', (req, res) => {
     })
 })
 
-router.get('/add', (req, res) => {
+router.post('/', (req, res) => {
+    const message = new Message({
+        author: req.body.author,
+        title: req.body.title,
+        content: req.body.content,
+    })
+    message.save((err) => {
+        if (err) { console.log(err) }
+    })
+    res.redirect('/message-board')
+})
 
+router.get('/add', (req, res) => {
     res.render('pages/add-message', { 
         headertitle: "Add Message || EPIC Manager"
     })
