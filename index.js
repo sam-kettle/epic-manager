@@ -1,9 +1,13 @@
-const express = require('express');
+const express = require('express')
 const bodyParser = require('body-parser')
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
+const path = require('path')
 
 // Express config
 const app = express();
+app.set('view engine', 'ejs')
+app.use('/static', express.static(path.join(__dirname, 'static')))
+
 
 // Middleware configuration
 app.use(bodyParser.json())

@@ -3,9 +3,14 @@ An app for managers to track team performance, featuring a built in message boar
 
 ---
 
-## Powered by:
+## Powered by
 * Node.js
 * Express / EJS
 * MongoDB & Mongoose
 * Bootstrap (Bootswatch theme)
 ---
+
+## Key features
+- [ ] Team message board
+- [ ] Performance review tracking
+- [ ] Authentication: seperate permissions for managers and team
