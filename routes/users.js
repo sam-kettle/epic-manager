@@ -50,7 +50,6 @@ router.post('/register', (req, res) => {
                 const newUser = new User({
                     name, email, password, isManager
                 })
-                console.log(newUser.password)
                 // Hash password and overwrite
                 bcrypt.hash(newUser.password, 10, (err, hash) => {
                     newUser.password = hash
