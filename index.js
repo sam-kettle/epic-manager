@@ -27,11 +27,9 @@ app.get('/', (req, res,) =>{
 })
 
 // Message board route handler
-const messageBoard = require('./routes/message-board')
-app.use('/message-board', messageBoard)
-
-const performanceReview = require('./routes/performance-reviews')
-app.use('/performance-reviews', performanceReview)
+app.use('/message-board', require('./routes/message-board'))
+// Performance review route handler
+app.use('/performance-reviews', require('./routes/performance-reviews'))
 
 // Run server
 const port  = process.env.PORT || 3000;
