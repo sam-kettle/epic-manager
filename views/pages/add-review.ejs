@@ -1,0 +1,45 @@
+<%- include('../partials/_head') -%>
+<%- include('../partials/_nav') -%>
+
+<div id="add-review-container">
+    <h2>Add a performance review</h2>
+    <form action="/performance-reviews" method="POST">
+        <div class="form-group">
+            <label for="reviewer-input">Reviewer name</label>
+            <input name="reviewer" type="text" class="form-control" id="reviewer-input" placeholder="Enter reviewer's name">
+        </div>
+        <div class="form-group">
+            <label for="employee-input">Team member name</label>
+            <input name="employee" type="text" class="form-control" id="employee-input" placeholder="Who is being reviewed?">
+        </div>
+        <div class="form-group">
+            <label for="review-month">Review month</label>
+            <select name='date' class="form-control" id="review-month">
+              <option>January</option>
+              <option>February</option>
+              <option>March</option>
+              <option>April</option>
+              <option>May</option>
+              <option>June</option>
+              <option>July</option>
+              <option>August</option>
+              <option>September</option>
+              <option>October</option>
+              <option>November</option>
+              <option>December</option>
+            </select>
+          </div>                  
+        <div class="form-group">
+            <label for="content-text-area">Review content</label>
+            <textarea name="content" class="form-control" id="content-text-area" rows="12"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="objectives-text-area">Agreed objectives</label>
+            <textarea name="objectives" class="form-control" id="objectives-text-area" rows="6"></textarea>
+        </div>        
+        <div id="submit-buttons">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a role='button' class='btn btn-danger' href="/message-board">Cancel</a>
+        </div>
+    </form>
+</div>

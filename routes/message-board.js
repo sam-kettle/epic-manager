@@ -30,4 +30,4 @@ router.get('/add', (req, res) => {
     })
 })
 
-module.exports = router;
+module.exports = router

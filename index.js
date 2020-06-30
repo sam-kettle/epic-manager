@@ -27,6 +27,9 @@ app.get('/', (req, res,) =>{
 const messageBoard = require('./routes/message-board')
 app.use('/message-board', messageBoard)
 
+const performanceReview = require('./routes/performance-reviews')
+app.use('/performance-reviews', performanceReview)
+
 // Run server
 const port  = process.env.PORT || 3000;
 app.listen(port, () => {

@@ -46,3 +46,10 @@ nav h2{
 #message-card-author {
     font-weight: strong;
 }
+
+#add-review-container {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    width: 500px;
+    margin: 0 auto;
+}
