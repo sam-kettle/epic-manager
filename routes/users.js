@@ -1,6 +1,9 @@
 const express = require('express')
 const router = express.Router()
-const Review = require('../models/review')
+const bcrypt = require('bcrypt')
+
+const User = require('../models/user')
+
 
 router.get('/login', (req, res) => {
     res.render('pages/login', {
@@ -35,7 +38,30 @@ router.post('/register', (req, res) => {
             errors: errors
         })
     } else {
-        res.send('Success')
+        User.findOne({ email: email }).then(user => {
+            if(user) {
+                errors.push({ msg: 'That email has already been used. Try logging in.'})
+                res.render('pages/register', {
+                    headertitle: 'Register || EPIC Manager',
+                    errors: errors
+                })
+            } else {
+                // Create new user for database
+                const newUser = new User({
+                    name, email, password, isManager
+                })
+                console.log(newUser.password)
+                // Hash password and overwrite
+                bcrypt.hash(newUser.password, 10, (err, hash) => {
+                    newUser.password = hash
+                    // Save user to database
+                    newUser.save((err) => {
+                        if(err) { console.log(err) }
+                    })
+                })
+                res.redirect('login')
+            }
+        })
     }
 })
 
