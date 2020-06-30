@@ -1,6 +1,9 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const path = require('path')
+const flash = require('connect-flash')
+const session = require('express-session')
+const { RSA_NO_PADDING } = require('constants')
 
 // Express config
 const app = express();
@@ -15,8 +18,25 @@ const db = mongoose.connection
 db.on('error', (err) => { console.log(err) })
 db.once('open', () => { console.log('Successfully connected to database.') })
 
-// Middleware configuration
+// Bodyparser
 app.use(express.urlencoded({ extended: true }))
+
+// Express session
+app.use(session({
+    secret: 'Wd$*gfl&225OrBdx',
+    resave: true,
+    saveUninitialized: true,
+}))
+
+// Connect Flash
+app.use(flash())
+
+// Message variables
+app.use((req, res, next) => {
+    res.locals.success_msg = req.flash('success_msg')
+    res.locals.error_msg = req.flash('error_msg')
+    next()
+})
 
 // Home route
 app.get('/', (req, res,) =>{
