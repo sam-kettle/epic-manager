@@ -20,7 +20,10 @@ app.use(express.urlencoded({ extended: true }))
 
 // Home route
 app.get('/', (req, res,) =>{
-    res.render('pages/index', { headertitle: 'EPIC Manager Home'})
+    res.render('pages/index', { 
+        headertitle: 'EPIC Manager Home',
+        reviewActive: '', messageActive: '', homeActive: 'active'
+    })
 })
 
 // Message board route handler

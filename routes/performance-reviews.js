@@ -3,12 +3,16 @@ const router = express.Router()
 const Review = require('../models/review')
 
 router.get('/', (req, res) => {
-    res.send('On the performance review route')
+    res.render('pages/performance-review', {
+        headertitle: 'Performance reviews || EPIC Manager', 
+        reviewActive: 'active', messageActive: '', homeActive: ''
+    })
 })
 
 router.get('/add', (req, res) => {
     res.render('pages/add-review', { 
-        headertitle: "Add new review || EPIC Manager"
+        headertitle: "Add new review || EPIC Manager",
+        reviewActive: 'active', messageActive: '', homeActive: ''
     })
 })
 

@@ -8,6 +8,7 @@ router.get('/', (req, res) => {
         res.render('pages/message-board', { 
             headertitle: "Message Board || Epic Manager",
             messages: messages,
+            reviewActive: '', messageActive: 'active', homeActive: ''
         })
     })
 })
@@ -26,7 +27,8 @@ router.post('/', (req, res) => {
 
 router.get('/add', (req, res) => {
     res.render('pages/add-message', { 
-        headertitle: "Add Message || EPIC Manager"
+        headertitle: "Add Message || EPIC Manager",
+        reviewActive: '', messageActive: 'active', homeActive: ''
     })
 })
 
