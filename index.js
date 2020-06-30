@@ -30,6 +30,8 @@ app.get('/', (req, res,) =>{
 app.use('/message-board', require('./routes/message-board'))
 // Performance review route handler
 app.use('/performance-reviews', require('./routes/performance-reviews'))
+// Users route handler
+app.use('/users', require('./routes/users'))
 
 // Run server
 const port  = process.env.PORT || 3000;
