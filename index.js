@@ -4,6 +4,7 @@ const path = require('path')
 const flash = require('connect-flash')
 const session = require('express-session')
 const passport = require('passport')
+const morgan = require('morgan');
 
 // Express config
 const app = express();
@@ -12,6 +13,9 @@ app.use('/static', express.static(path.join(__dirname, 'static')))
 
 // Passport config
 require('./config/passport')(passport)
+
+// Morgan middleware
+app.use(morgan('tiny'))
 
 // Mongoose connection
 mongoose.connect('mongodb://localhost/epicmanagerdb', { useNewUrlParser: true, useUnifiedTopology: true })
@@ -23,6 +27,7 @@ db.once('open', () => { console.log('Successfully connected to database.') })
 
 // Bodyparser
 app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
 
 // Express session
 app.use(session({

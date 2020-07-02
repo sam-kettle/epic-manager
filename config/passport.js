@@ -7,7 +7,7 @@ const User = require('../models/user');
 
 module.exports = function(passport) {
     passport.use(
-        new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
+        new LocalStrategy({ usernameField: 'email', passwordField: 'password' }, (email, password, done) => {
             User.findOne({ email: email })
                 .then(user => {
                     if (!user) {
@@ -19,7 +19,7 @@ module.exports = function(passport) {
                         if (isMatch) {
                             return done(null, user)
                         } else {
-                            return done(done, false, { message: 'Password incorrect'})
+                            return done(null, false, { message: 'Password incorrect'})
                         }
                     })
                 })
@@ -32,7 +32,7 @@ module.exports = function(passport) {
     })
           
     passport.deserializeUser((id, done) => {
-        User.findById(id, function(err, user) {
+        User.findById(id, (err, user) => {
             done(err, user);
         })
     })
