@@ -6,14 +6,16 @@ const { ensureAuthenticated } = require('../config/auth')
 router.get('/', ensureAuthenticated, (req, res) => {
     res.render('pages/performance-review', {
         headertitle: 'Performance reviews || EPIC Manager', 
-        reviewActive: 'active', messageActive: '', homeActive: ''
+        reviewActive: 'active', messageActive: '', homeActive: '',
+        name: req.user.name
     })
 })
 
 router.get('/add', ensureAuthenticated, (req, res) => {
     res.render('pages/add-review', { 
         headertitle: "Add new review || EPIC Manager",
-        reviewActive: 'active', messageActive: '', homeActive: ''
+        reviewActive: 'active', messageActive: '', homeActive: '',
+        name: req.user.name
     })
 })
 

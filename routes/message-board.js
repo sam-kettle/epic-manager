@@ -9,7 +9,8 @@ router.get('/', ensureAuthenticated, (req, res) => {
         res.render('pages/message-board', { 
             headertitle: "Message Board || Epic Manager",
             messages: messages,
-            reviewActive: '', messageActive: 'active', homeActive: ''
+            reviewActive: '', messageActive: 'active', homeActive: '',
+            name: req.user.name
         })
     })
 })
@@ -29,7 +30,8 @@ router.post('/', (req, res) => {
 router.get('/add', ensureAuthenticated, (req, res) => {
     res.render('pages/add-message', { 
         headertitle: "Add Message || EPIC Manager",
-        reviewActive: '', messageActive: 'active', homeActive: ''
+        reviewActive: '', messageActive: 'active', homeActive: '',
+        user: req.user
     })
 })
 

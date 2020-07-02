@@ -52,10 +52,11 @@ app.use((req, res, next) => {
 })
 
 // Home route
-app.get('/', (req, res,) =>{
+app.get('/home', (req, res,) =>{
     res.render('pages/home', { 
         headertitle: 'EPIC Manager Home',
-        reviewActive: '', messageActive: '', homeActive: 'active'
+        reviewActive: '', messageActive: '', homeActive: 'active',
+        name: req.user.name
     })
 })
 
