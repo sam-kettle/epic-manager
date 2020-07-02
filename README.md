@@ -27,7 +27,7 @@ An app for managers to track team performance, featuring a built in message boar
 - [ ] Authentication
     - [x] Create register and login pages
     - [x] Create basic auth & validation using passport
-    - [ ] User cannot access anything unless logged in
+    - [x] User cannot access anything unless logged in
     - [ ] Logout function
 - [ ] Profiles and permissions
     - [ ] Create basic profile view: add bio, picture

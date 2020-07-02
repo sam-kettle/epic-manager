@@ -1,9 +1,10 @@
 const express = require('express')
 const router = express.Router();
 const Message = require('../models/message')
+const { ensureAuthenticated } = require('../config/auth')
 
 
-router.get('/', (req, res) => {
+router.get('/', ensureAuthenticated, (req, res) => {
     Message.returnAll().then((messages) => {
         res.render('pages/message-board', { 
             headertitle: "Message Board || Epic Manager",
@@ -25,7 +26,7 @@ router.post('/', (req, res) => {
     res.redirect('/message-board')
 })
 
-router.get('/add', (req, res) => {
+router.get('/add', ensureAuthenticated, (req, res) => {
     res.render('pages/add-message', { 
         headertitle: "Add Message || EPIC Manager",
         reviewActive: '', messageActive: 'active', homeActive: ''
