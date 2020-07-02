@@ -5,6 +5,7 @@ const flash = require('connect-flash')
 const session = require('express-session')
 const passport = require('passport')
 const morgan = require('morgan');
+const { ensureAuthenticated } = require('./config/auth')
 
 // Express config
 const app = express();
@@ -52,12 +53,16 @@ app.use((req, res, next) => {
 })
 
 // Home route
-app.get('/home', (req, res,) =>{
+app.get('/home', ensureAuthenticated, (req, res,) =>{
     res.render('pages/home', { 
         headertitle: 'EPIC Manager Home',
-        reviewActive: '', messageActive: '', homeActive: 'active',
+        reviewActive: '', messageActive: '', homeActive: 'active', trackerActive: '',
         name: req.user.name
     })
+})
+
+app.get('/', (req, res,) =>{
+    res.redirect('/home')
 })
 
 // Message board route handler
