@@ -24,11 +24,11 @@ An app for managers to track team performance, featuring a built in message boar
     - [ ] Special styling for manager messages
     - [ ] Add date created to new messages
 - [ ] Performance tracker
-- [ ] Authentication
+- [x] Authentication
     - [x] Create register and login pages
     - [x] Create basic auth & validation using passport
     - [x] User cannot access anything unless logged in
-    - [ ] Logout function
+    - [x] Logout function
 - [ ] Profiles and permissions
     - [ ] Create basic profile view: add bio, picture
     - [ ] Managers can edit or delete anything
