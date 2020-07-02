@@ -3,12 +3,15 @@ const mongoose = require('mongoose')
 const path = require('path')
 const flash = require('connect-flash')
 const session = require('express-session')
-const { RSA_NO_PADDING } = require('constants')
+const passport = require('passport')
 
 // Express config
 const app = express();
 app.set('view engine', 'ejs')
 app.use('/static', express.static(path.join(__dirname, 'static')))
+
+// Passport config
+require('./config/passport')(passport)
 
 // Mongoose connection
 mongoose.connect('mongodb://localhost/epicmanagerdb', { useNewUrlParser: true, useUnifiedTopology: true })
@@ -28,6 +31,10 @@ app.use(session({
     saveUninitialized: true,
 }))
 
+// Passport middleware
+app.use(passport.initialize())
+app.use(passport.session())
+
 // Connect Flash
 app.use(flash())
 
@@ -35,12 +42,13 @@ app.use(flash())
 app.use((req, res, next) => {
     res.locals.success_msg = req.flash('success_msg')
     res.locals.error_msg = req.flash('error_msg')
+    res.locals.error = req.flash('error')
     next()
 })
 
 // Home route
 app.get('/', (req, res,) =>{
-    res.render('pages/index', { 
+    res.render('pages/home', { 
         headertitle: 'EPIC Manager Home',
         reviewActive: '', messageActive: '', homeActive: 'active'
     })
