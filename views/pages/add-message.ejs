@@ -4,10 +4,7 @@
 <div id="add-message-container">
     <h2>Add a new message</h2>
     <form action="/message-board" method="POST">
-        <div class="form-group">
-            <label for="author-input">Name</label>
-            <input name="author" type="text" class="form-control" id="author-input" placeholder="e.g. Sam Eddy">
-          </div>
+          <input name='author' type="hidden" id="author-input" value="<%= name %>">
           <div class="form-group">
             <label for="title-input">Title</label>
             <input name="title" type="text" class="form-control" id="title-input" placeholder="Enter your message title">

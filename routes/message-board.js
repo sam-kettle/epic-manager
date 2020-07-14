@@ -28,10 +28,11 @@ router.post('/', (req, res) => {
 })
 
 router.get('/add', ensureAuthenticated, (req, res) => {
+    console.log(req.user)
     res.render('pages/add-message', { 
         headertitle: "Add Message || EPIC Manager",
         reviewActive: '', messageActive: 'active', homeActive: '', trackerActive: '',
-        user: req.user
+        name: req.user.name
     })
 })
 
