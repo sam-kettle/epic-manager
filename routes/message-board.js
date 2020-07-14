@@ -10,16 +10,17 @@ router.get('/', ensureAuthenticated, (req, res) => {
             headertitle: "Message Board || Epic Manager",
             messages: messages,
             reviewActive: '', messageActive: 'active', homeActive: '', trackerActive: '',
-            name: req.user.name
+            name: req.user.name, isManager: req.user.isManager
         })
     })
 })
 
-router.post('/', (req, res) => {
+router.post('/', ensureAuthenticated, (req, res) => {
     const message = new Message({
         author: req.body.author,
         title: req.body.title,
         content: req.body.content,
+        isManager: req.user.isManager
     })
     message.save((err) => {
         if (err) { console.log(err) }
@@ -32,7 +33,7 @@ router.get('/add', ensureAuthenticated, (req, res) => {
     res.render('pages/add-message', { 
         headertitle: "Add Message || EPIC Manager",
         reviewActive: '', messageActive: 'active', homeActive: '', trackerActive: '',
-        name: req.user.name
+        name: req.user.name, isManager: req.user.isManager
     })
 })
 

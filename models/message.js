@@ -13,6 +13,10 @@ let messageSchema = mongoose.Schema({
     content: {
         type: String,
         required: true
+    },
+    isManager: {
+        type: Boolean,
+        required: true
     }
 })
 

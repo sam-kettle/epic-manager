@@ -5,6 +5,7 @@
     <h2>Add a new message</h2>
     <form action="/message-board" method="POST">
           <input name='author' type="hidden" id="author-input" value="<%= name %>">
+          <input name='isManager' type="hidden" id="isManager-input" value="<%= isManager %>">
           <div class="form-group">
             <label for="title-input">Title</label>
             <input name="title" type="text" class="form-control" id="title-input" placeholder="Enter your message title">

@@ -10,7 +10,13 @@
 
     <div id="message-board-cards">
         <% messages.forEach(function(message) { %>
-            <div class="card bg-light mb-3" style="max-width: 20rem;">
+            <div class="card
+            <%  if (message.isManager) { %> 
+                bg-primary text-white mb-3" 
+            <% } else { %>
+                bg-light mb-3" 
+            <% } %>
+            style="max-width: 20rem;">
                 <div class="card-header"><span id='message-card-author'>From: </span><%= message.author %></div>
                 <div class="card-body">
                 <h4 class="card-title"><%= message.title %></h4>
